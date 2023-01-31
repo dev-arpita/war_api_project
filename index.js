@@ -1,8 +1,3 @@
-/**
- * Challenge: Define our anonymous callback function as a separate function, then
- * pass it as the 2nd parameter to our `addEventListener`
- */
-
 function handleClick() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
         .then(res => res.json())
@@ -10,7 +5,17 @@ function handleClick() {
 }
 
 document.getElementById("new-deck").addEventListener("click", handleClick)
-    //above code, copy the variable & callback function calls when button clicked
 
-// document.getElementById("new-deck").addEventListener("click", handleClick())
-    //above code, just call the function & return value whithout click event
+/**
+ * Challenge:
+ *
+ * Part 1: write a `setTimeout` command. Have it wait for 2000 ms before logging "I finally ran!" to the console
+ *
+ * Part 2: Move the anonymous in-line function to its own, named function
+ */
+
+function callback() {
+    console.log("I finally ran!")
+}
+
+setTimeout(callback, 2000)
