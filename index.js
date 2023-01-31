@@ -1,18 +1,16 @@
-document.getElementById("new-deck").addEventListener("click", function() {
+/**
+ * Challenge: Define our anonymous callback function as a separate function, then
+ * pass it as the 2nd parameter to our `addEventListener`
+ */
+
+function handleClick() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
         .then(res => res.json())
         .then(data => console.log(data))
-})
-
-// Functions are a first-class object in JavaScript
-
-let myNum = 42
-let myNum2 = myNum
-
-function myFunction(a, b) {
-    console.log(a + b)
 }
-//let myfunction = ()=> console.log(a + b)
 
-let myFunction2 = myFunction //copy the varible
-myFunction2(1, 2) //calling the function
+document.getElementById("new-deck").addEventListener("click", handleClick)
+    //above code, copy the variable & callback function calls when button clicked
+
+// document.getElementById("new-deck").addEventListener("click", handleClick())
+    //above code, just call the function & return value whithout click event
