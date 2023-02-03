@@ -1,7 +1,12 @@
 function handleClick() {
-    fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
-        .then(res => res.json())
-        .then(data => console.log(data))
+    fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/", function(response){
+        response.json(function(data) {
+            console.log(data)
+            // Do cool stuff with the data here
+        })
+    })
+        // .then(res => res.json())
+        // .then(data => console.log(data))
 }
 
 document.getElementById("new-deck").addEventListener("click", handleClick)
@@ -26,24 +31,24 @@ document.getElementById("new-deck").addEventListener("click", handleClick)
 // const peopleWithPets = people.filter(gimmeThePets)
 // console.log(peopleWithPets)
 
-const people = [
-    { name: "Jack", hasPet: true },
-    { name: "Jill", hasPet: false },
-    { name: "Alice", hasPet: true },
-    { name: "Bob", hasPet: false },
-]
+// const people = [
+//     { name: "Jack", hasPet: true },
+//     { name: "Jill", hasPet: false },
+//     { name: "Alice", hasPet: true },
+//     { name: "Bob", hasPet: false },
+// ]
 
-function filterArray(array, callback) {
-    const resultingArray = []
+// function filterArray(array, callback) {
+//     const resultingArray = []
     // Write your filtering logic here
-    for (let item of array) {
-        const shouldBeIncluded = callback(item)
-        if (shouldBeIncluded) {
-            resultingArray.push(item)
-        }
-    }
-    return resultingArray
-}
+//     for (let item of array) {
+//         const shouldBeIncluded = callback(item)
+//         if (shouldBeIncluded) {
+//             resultingArray.push(item)
+//         }
+//     }
+//     return resultingArray
+// }
 
 /**
  * Challenge: Use your filter array method!
@@ -51,8 +56,8 @@ function filterArray(array, callback) {
  * Note: Remember that your callback function will be given the individual item in the array for a parameter
  */
 
-const peopleWithPets = filterArray(people, function(person) {
-    return person.hasPet
-})
+// const peopleWithPets = filterArray(people, function(person) {
+//     return person.hasPet
+// })
 
-console.log(peopleWithPets)
+// console.log(peopleWithPets)
