@@ -17,12 +17,22 @@ drawCardBtn.addEventListener("click", () => {
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => {
+<<<<<<< HEAD
             cardsContainer.children[0].innerHTML = `
                 <img src=${data.cards[0].image} class="card" />
             `
             cardsContainer.children[1].innerHTML = `
                 <img src=${data.cards[1].image} class="card" />
+=======
+            console.log(data.cards)
+
+const cards = document.getElementById("cards")
+    cards.children[0].innerHTML = `
+                <img src=${data.cards[0].image} class="card" />
+>>>>>>> 09b6ad42b72eaefee75115d45ba6aa3fcdeac6bd
             `
+    cards.children[1].innerHTML = ` <img src=${data.cards[1].image} class="card" />`
+
         })
 })
 /**
