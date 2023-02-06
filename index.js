@@ -1,27 +1,27 @@
 /**
- * Challenge: method chaining!
+ * Time to be curious!
  *
- * 1. Select the button in the DOM and add an event listener to it without saving the DOM element as a separate variable. I.e. "chain" the `addEventListener` on after your `getElementById()`(When clicked, log "Clicked" to the console)
- *    - I realize this might feel like busywork, but my intent will make sense soon
+ * What would happen if you didn't return `res.json()`
+ * from the first .then block?
  *
- * 2. Given the array below, chain the `.filter` and `.map` array methods together to turn the array into an array of string email addresses of only the people in the array who voted. Log the array of email addresses to the console
+ * What would the next .then() callback receive as its
+ * parameter if you returned something totally different??
  */
 
-// document.getElementById("new-deck").addEventListener("click", function() {
-//     console.log("Clicked!")
-// })
+/**
+ * Challenge:
+ *
+ * pass the string "World" down to a 3rd .then() block
+ * and log it to the console inside the body of this new
+ * 3rd .then() block
+ */
 
-const voters = [
-    {name: "Joe", email: "joe@joe.com", voted: true},
-    {name: "Jane", email: "jane@jane.com", voted: true},
-    {name: "Bo", email: "bo@bo.com", voted: false},
-    {name: "Bane", email: "bane@bane.com", voted: false}
-]
-
-// Write your code below
-
-const finalResult = voters.filter((voter)=> voter.voted).map((voter) => voter.email)
-console.log(finalResult)
-
-
-// Final result: ["joe@joe.com", "jane@jane.com" ]
+fetch("https://apis.scrimba.com/bored/api/activity")
+    .then(function(res) {
+        return "Hello"
+    })
+    .then(function(whatever) {
+        console.log(whatever)
+        return whatever
+    })
+    .then((str) => console.log(`${str} World`) )
