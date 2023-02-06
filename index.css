@@ -4,7 +4,24 @@ body {
     padding: 0;
 }
 
-#alert {
-    color: red;
-    display: none
+.container {
+    background: url("img/table.png");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+button {
+    background: yellow;
+    border: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#new-deck {
+    align-self: start;
+    margin-top: 5px;
 }
