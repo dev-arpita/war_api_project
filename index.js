@@ -1,27 +1,24 @@
-/**
- * Time to be curious!
- *
- * What would happen if you didn't return `res.json()`
- * from the first .then block?
- *
- * What would the next .then() callback receive as its
- * parameter if you returned something totally different??
- */
+let deckId
 
-/**
- * Challenge:
- *
- * pass the string "World" down to a 3rd .then() block
- * and log it to the console inside the body of this new
- * 3rd .then() block
- */
+function handleClick() {
+    fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            deckId = data.deck_id
+        })
+}
 
-fetch("https://apis.scrimba.com/bored/api/activity")
-    .then(function(res) {
-        return "Hello"
-    })
-    .then(function(whatever) {
-        console.log(whatever)
-        return whatever
-    })
-    .then((str) => console.log(`${str} World`) )
+document.getElementById("new-deck").addEventListener("click", handleClick)
+/**
+ * Challenge
+ *
+ * Background:
+ * The Deck of Cards API expects us to provide the deck id
+ * of the deck we're playing with so it can remember which
+ * cards we've already drawn, how many are remaining in the
+ * deck, etc.
+ *
+ * Task: save the deck_id from the returned data to a local
+ * variable so we can use it later
+ */
