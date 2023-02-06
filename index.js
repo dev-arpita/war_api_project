@@ -16,16 +16,21 @@ document.getElementById("draw-cards").addEventListener("click", () => {
         .then(res => res.json())
         .then(data => {
             console.log(data.cards)
-            document.getElementById("cards").innerHTML = `
-                <img src=${data.cards[0].image} />
-                <img src=${data.cards[1].image} />
+
+const cards = document.getElementById("cards")
+    cards.children[0].innerHTML = `
+                <img src=${data.cards[0].image} class="card" />
             `
+    cards.children[1].innerHTML = ` <img src=${data.cards[1].image} class="card" />`
+
         })
 })
 /**
  * Challenge:
  *
- * Display the images of the 2 cards you drew in the browser.
- * Probably best to use `innerHTML` to insert a couple <img> elements
- * on the page.
+ * Place each of the cards we draw into its respective card-slot
+ * Hint: consider using element.children in the DOM instead of
+ * giving each card-slot its own unique ID
+ *
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/children
  */
